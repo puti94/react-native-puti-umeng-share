@@ -53,6 +53,6 @@
 ## Events
 | Event Name | Params | Notes | Example |
 |---|---|---|---|
-| init | 第一个参数为第三方配置参数,第二个是否开启debug模式 | 初始化| UMeng.init({...},true)
-| share |  | 分享| UMeng.share({...})
-| login | String platform | 登录| UMeng.login(UMeng.QQ).then().catch()
+| init | 第一个参数为第三方配置参数,第二个是否开启debug模式 | 初始化| UMeng.init({...},true)|
+| share |  | 分享| UMeng.share({...})|
+| login | String platform | 登录| UMeng.login(UMeng.QQ).then().catch()|
