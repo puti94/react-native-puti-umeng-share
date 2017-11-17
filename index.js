@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {NativeModules, Alert} from 'react-native';
 
 const UMShare = NativeModules.UMengShare;
-const UMPush = NativeModules.UMengPush;
 const UMConfig = NativeModules.UMengConfig;
 const UMLogin = NativeModules.UMengLogin;
 
@@ -14,16 +13,13 @@ export default class UMeng {
     static WEIXIN = "WEIXIN";
     static WEIXIN_CIRCLE = "WEIXIN_CIRCLE";
     static WEIXIN_FAVORITE = "WEIXIN_FAVORITE";
-    static ALIPAY = "ALIPAY";
-    static SINA = "SINA";
+
 
     //分享类型
     static UMImage = "UMImage";
     static UMWeb = "UMWeb";
     static UMVideo = "UMVideo";
     static UMusic = "UMusic";
-
-    static isInit = false;
 
     /**
      * 初始化平台信息
@@ -32,7 +28,6 @@ export default class UMeng {
      */
     static init(params, debug) {
         UMConfig.init(params, debug == null ? false : debug);
-        UMeng.isInit = true;
     }
 
     /**

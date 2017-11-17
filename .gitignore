@@ -1,2 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 /android/build/
+/android/.idea/
+/android/gradle/
+/android/android.iml
+/android/gradlew.bat
+/android/gradlew
+/android/local.properties
