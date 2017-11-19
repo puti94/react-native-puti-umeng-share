@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {NativeModules, Alert} from 'react-native';
 
-const UMShare = NativeModules.UMengShare;
+const UMengShare = NativeModules.UMengShare;
 
 
 export default class UMShare {
@@ -25,7 +25,7 @@ export default class UMShare {
      * @param debug
      */
     static debug(debug) {
-        UMShare.debug(debug == null ? false : debug);
+        UMengShare.debug(debug == null ? false : debug);
     }
 
     /**
@@ -34,7 +34,7 @@ export default class UMShare {
      * @param secret
      */
     static setWeixin(id, secret) {
-        UMShare.setWeixin(id, secret);
+        UMengShare.setWeixin(id, secret);
     }
 
     /**
@@ -43,7 +43,7 @@ export default class UMShare {
      * @param key
      */
     static setQQZone(id, key) {
-        UMShare.setQQZone(id, key);
+        UMengShare.setQQZone(id, key);
     }
 
     /**
@@ -53,7 +53,7 @@ export default class UMShare {
      * @param url
      */
     static setSinaWeibo(key, secret, url) {
-        UMShare.setSinaWeibo(key, secret, url);
+        UMengShare.setSinaWeibo(key, secret, url);
     }
 
     /**
@@ -62,7 +62,7 @@ export default class UMShare {
      * @returns {*}
      */
     static  isInstall(type) {
-        return UMShare.isInstall(type);
+        return UMengShare.isInstall(type);
     }
 
     /**
@@ -71,10 +71,17 @@ export default class UMShare {
      * @returns {*|Promise.<Object>}
      */
     static share(params) {
-        return UMShare.share({text: '', type: '', image: '', title: '', url: '', desc: '', platform: '',...params})
+        return UMengShare.share({text: '', type: '', image: '', title: '', url: '', desc: '', platform: '',...params})
     }
 
+    /**
+     * 第三方登录
+     * @param platform  登录平台
+     * @returns {Promise}
+     */
     static login(platform) {
-        return UMShare.login(platform)
+        return new Promise((resolve,reject)=>{
+                UMengShare.login(platform).then(res=>resolve(JSON.parse(res))).catch(e=>reject(e))
+    });
     }
 }
