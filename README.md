@@ -83,7 +83,7 @@
 
         //分享。
         UMShare.share({
-                    platform: `${UMeng.QQ}&${UMeng.WEIXIN}`,//分享平台,调用分享面板则使用&拼接
+                    platform: `${UMShare.QQ}&${UMShare.WEIXIN}`,//分享平台,调用分享面板则使用&拼接
                     type: UMeng.UMWeb,  //分享类型
                     title: '我是分享标题',
                     url: 'https://www.baidu.com',
@@ -96,14 +96,14 @@
                 })
 
          //登录
-         UMShare.login(UMeng.WEIXIN)
+         UMShare.login(UMShare.WEIXIN)
                  .then((data) => {
                              ToastAndroid.show(data, ToastAndroid.SHORT);
                      }).catch(e => {
                       ToastAndroid.show(e, ToastAndroid.SHORT);
                      })
 
-          UMShare.isInstall(UMeng.WEIXIN)
+          UMShare.isInstall(UMShare.WEIXIN)
                  .then((isInstall) => {
                             if (!isInstall) Toast('微信未安装')
                      })
