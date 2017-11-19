@@ -2,17 +2,16 @@ import React, {Component} from 'react';
 import {NativeModules, Alert} from 'react-native';
 
 const UMShare = NativeModules.UMengShare;
-const UMConfig = NativeModules.UMengConfig;
-const UMLogin = NativeModules.UMengLogin;
 
 
-export default class UMeng {
+export default class UMShare {
     //分享平台
     static QQ = "QQ";
     static QZONE = "QZONE";
     static WEIXIN = "WEIXIN";
     static WEIXIN_CIRCLE = "WEIXIN_CIRCLE";
     static WEIXIN_FAVORITE = "WEIXIN_FAVORITE";
+    static SINA = "SINA";
 
 
     //分享类型
@@ -22,12 +21,39 @@ export default class UMeng {
     static UMusic = "UMusic";
 
     /**
-     * 初始化平台信息
-     * @param params
+     * 是否是debug模式
      * @param debug
      */
-    static init(params, debug) {
-        UMConfig.init(params, debug == null ? false : debug);
+    static debug(debug) {
+        UMShare.debug(debug == null ? false : debug);
+    }
+
+    /**
+     * 设置微信参数
+     * @param id
+     * @param secret
+     */
+    static setWeixin(id, secret) {
+        UMShare.setWeixin(id, secret);
+    }
+
+    /**
+     * 设置QQ参数
+     * @param id
+     * @param key
+     */
+    static setQQZone(id, key) {
+        UMShare.setQQZone(id, key);
+    }
+
+    /**
+     * 设置新浪微博参数
+     * @param key
+     * @param secret
+     * @param url
+     */
+    static setSinaWeibo(key, secret, url) {
+        UMShare.setSinaWeibo(key, secret, url);
     }
 
     /**
@@ -36,7 +62,7 @@ export default class UMeng {
      * @returns {*}
      */
     static  isInstall(type) {
-        return UMConfig.isInstall(type);
+        return UMShare.isInstall(type);
     }
 
     /**
@@ -45,10 +71,10 @@ export default class UMeng {
      * @returns {*|Promise.<Object>}
      */
     static share(params) {
-        return UMShare.share({text: '', type: '', image: '', title: '', url: '', desc: '', platform: '', ...params})
+        return UMShare.share({text: '', type: '', image: '', title: '', url: '', desc: '', platform: '',...params})
     }
 
     static login(platform) {
-        return UMLogin.login(platform)
+        return UMShare.login(platform)
     }
 }

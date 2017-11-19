@@ -12,26 +12,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
-    <activity
-        android:name="com.umeng.qq.tencent.AuthActivity"
-        android:launchMode="singleTask"
-        android:noHistory="true">
-
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-
-            <data android:scheme="tencent100424468" />
-        </intent-filter>
-    </activity>
-
-    <activity
-        android:name="com.umeng.qq.tencent.AssistActivity"
-        android:configChanges="orientation|keyboardHidden|screenSize"
-        android:screenOrientation="portrait"
-        android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
     <application
         android:allowBackup="true"

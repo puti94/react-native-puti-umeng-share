@@ -1,14 +1,20 @@
 package com.puti.nativemoduleumeng;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 
+import com.facebook.react.bridge.BaseActivityEventListener;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
+import com.umeng.socialize.Config;
+import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
@@ -29,33 +35,15 @@ public class UMengShareModule extends ReactContextBaseJavaModule {
 
     private static final String TAG = "UMengShareModule";
 
-    /**
-     * 友盟授权回调
-     */
-    UMAuthListener authListener = new UMAuthListener() {
-        @Override
-        public void onStart(SHARE_MEDIA platform) {
-            //授权开始的回调，可以用来处理等待框，或相关的文字提示
-        }
-
-        @Override
-        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
-
-        }
-
-        @Override
-        public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-        }
-
-        @Override
-        public void onCancel(SHARE_MEDIA platform, int action) {
-
-        }
-    };
-
 
     public UMengShareModule(ReactApplicationContext reactContext) {
         super(reactContext);
+        reactContext.addActivityEventListener(new BaseActivityEventListener() {
+            @Override
+            public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+                UMShareAPI.get(getCurrentActivity()).onActivityResult(requestCode, resultCode, data);
+            }
+        });
     }
 
     @Override
@@ -100,12 +88,81 @@ public class UMengShareModule extends ReactContextBaseJavaModule {
             shareAction.withText(params.getString("text"));
         }
         buildShareMessage(params, shareAction);
-        SHARE_MEDIA platform = getPlatform(params.getString("platform"));
-        if (platform == SHARE_MEDIA.MORE) {
+        if (params.getString("platform").contains("&")) {
             shareAction.setDisplayList(getPlatforms(params.getString("platform"))).open();
         } else {
-            shareAction.setPlatform(platform).share();
+            shareAction.setPlatform(getPlatform(params.getString("platform"))).share();
         }
+    }
+
+
+    /**
+     * 是否是debug模式
+     *
+     * @param debug
+     */
+    @ReactMethod
+    public void debug(Boolean debug) {
+        Config.DEBUG = debug;
+    }
+
+    @ReactMethod
+    public void setWeixin(String id, String secret) {
+        PlatformConfig.setWeixin(id, secret);
+    }
+
+    @ReactMethod
+    public void setQQZone(String id, String key) {
+        PlatformConfig.setQQZone(id, key);
+    }
+
+    @ReactMethod
+    public void setSinaWeibo(String key, String secret, String url) {
+        PlatformConfig.setSinaWeibo(key, secret, url);
+    }
+
+
+    @ReactMethod
+    public void login(final String platform, final Promise callback) {
+        Log.d(TAG, "login: " + platform);
+        UMShareAPI.get(getCurrentActivity()).getPlatformInfo(getCurrentActivity(), Utils.getPlatform(platform), new UMAuthListener() {
+            @Override
+            public void onStart(SHARE_MEDIA share_media) {
+                Log.d(TAG, "onStart: ");
+            }
+
+            @Override
+            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+                Log.d(TAG, "onComplete: " + map.toString());
+
+                callback.resolve(Utils.map2JsonString(map));
+            }
+
+            @Override
+            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
+                Log.d(TAG, "onError: " + throwable.toString());
+                callback.reject("" + i, throwable);
+            }
+
+            @Override
+            public void onCancel(SHARE_MEDIA share_media, int i) {
+                Log.d(TAG, "onCancel: ");
+                callback.reject("-1", "onCancel");
+            }
+        });
+    }
+
+    /**
+     * 是否安装了应用
+     *
+     * @param type
+     * @param promise
+     */
+    @ReactMethod
+    public void isInstall(String type, Promise promise) {
+        boolean install = UMShareAPI.get(getCurrentActivity()).isInstall(getCurrentActivity(), getPlatform(type));
+        Log.d(TAG, "isInstall: " + type + install);
+        promise.resolve(Boolean.valueOf(install));
     }
 
 
