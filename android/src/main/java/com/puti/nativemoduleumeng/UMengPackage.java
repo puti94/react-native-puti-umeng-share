@@ -19,8 +19,6 @@ public class UMengPackage implements ReactPackage {
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
         modules.add(new UMengShareModule(reactContext));
-        modules.add(new UMengConfigModule(reactContext));
-        modules.add(new UMengLoginModule(reactContext));
         return modules;
     }
 

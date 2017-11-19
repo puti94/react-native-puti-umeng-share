@@ -1,6 +1,6 @@
 {
   "name": "react-native-puti-umeng-share",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "友盟分享登录的react-native android模块，仅集成qq,微信,新浪微博,需要其它的自行参照代码集成。ios模块待完成",
   "main": "index.js",
   "scripts": {
