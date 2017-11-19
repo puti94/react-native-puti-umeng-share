@@ -8,8 +8,9 @@
 
 #import <React/RCTBridgeModule.h>
 
-@interface RCT_EXTERN_MODULE(UMengShare, NSObject)
-
-RCT_EXTERN_METHOD(share:(NSString *)name location:(NSString *)location date:(nonnull NSNumber *)date)
+@interface RCT_EXTERN_MODULE(UMengConfig, NSObject)
+RCT_EXTERN_METHOD(config:(NSString *)name location:(NSString *)location date:(nonnull NSNumber *)date)
 
 @end
+
+

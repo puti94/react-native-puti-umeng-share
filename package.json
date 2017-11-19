@@ -1,6 +1,6 @@
 {
   "name": "react-native-puti-umeng-share",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "友盟第三方分享，登录，仅集成微信QQ",
   "main": "index.js",
   "scripts": {

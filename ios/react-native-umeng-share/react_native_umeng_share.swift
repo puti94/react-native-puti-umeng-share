@@ -7,12 +7,19 @@
 //
 
 import Foundation
+@objc(UMengConfig)
+class UMengConfig: NSObject {
+    @objc func config(_ config:Dictionary<String,String>) {
 
+
+
+    }
+}
 @objc(UMengShare)
 class UMengShare: NSObject {
     @objc func share() {
 
 
-        print("111")
+
     }
 }

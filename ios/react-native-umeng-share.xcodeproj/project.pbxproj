@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		C5FB43191FC116380046CDCA /* react_native_umeng_share.m in Sources */ = {isa = PBXBuildFile; fileRef = C5FB43181FC116380046CDCA /* react_native_umeng_share.m */; };
 		C5FB43221FC118430046CDCA /* react_native_umeng_share.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB43211FC118430046CDCA /* react_native_umeng_share.swift */; };
+		C5FB43AD1FC12F2D0046CDCA /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FB439F1FC12F2D0046CDCA /* libSocialQQ.a */; };
+		C5FB43AE1FC12F2D0046CDCA /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FB43A21FC12F2D0046CDCA /* libSocialWeChat.a */; };
+		C5FB43AF1FC12F2D0046CDCA /* UMSocialCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FB43A51FC12F2D0046CDCA /* UMSocialCore.framework */; };
+		C5FB43B01FC12F2D0046CDCA /* UMSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FB43A61FC12F2D0046CDCA /* UMSocialNetwork.framework */; };
+		C5FB43B11FC12F2D0046CDCA /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FB43A91FC12F2D0046CDCA /* libUMSocialLog.a */; };
+		C5FB43B21FC12F2D0046CDCA /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FB43AC1FC12F2D0046CDCA /* UShareUI.framework */; };
+		C5FB43EE1FC150A40046CDCA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FB43EC1FC1503A0046CDCA /* CoreGraphics.framework */; };
+		C5FB43EF1FC150E70046CDCA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FB43EB1FC150190046CDCA /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +36,18 @@
 		C5FB43181FC116380046CDCA /* react_native_umeng_share.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = react_native_umeng_share.m; sourceTree = "<group>"; };
 		C5FB43201FC118430046CDCA /* react-native-umeng-share-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "react-native-umeng-share-Bridging-Header.h"; sourceTree = "<group>"; };
 		C5FB43211FC118430046CDCA /* react_native_umeng_share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = react_native_umeng_share.swift; sourceTree = "<group>"; };
+		C5FB439F1FC12F2D0046CDCA /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
+		C5FB43A01FC12F2D0046CDCA /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
+		C5FB43A21FC12F2D0046CDCA /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
+		C5FB43A31FC12F2D0046CDCA /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		C5FB43A51FC12F2D0046CDCA /* UMSocialCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialCore.framework; sourceTree = "<group>"; };
+		C5FB43A61FC12F2D0046CDCA /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialNetwork.framework; sourceTree = "<group>"; };
+		C5FB43A71FC12F2D0046CDCA /* UMSocialSDKPromptResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKPromptResources.bundle; sourceTree = "<group>"; };
+		C5FB43A91FC12F2D0046CDCA /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
+		C5FB43AB1FC12F2D0046CDCA /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
+		C5FB43AC1FC12F2D0046CDCA /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
+		C5FB43EB1FC150190046CDCA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C5FB43EC1FC1503A0046CDCA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +55,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FB43EF1FC150E70046CDCA /* libsqlite3.tbd in Frameworks */,
+				C5FB43EE1FC150A40046CDCA /* CoreGraphics.framework in Frameworks */,
+				C5FB43B01FC12F2D0046CDCA /* UMSocialNetwork.framework in Frameworks */,
+				C5FB43AE1FC12F2D0046CDCA /* libSocialWeChat.a in Frameworks */,
+				C5FB43B21FC12F2D0046CDCA /* UShareUI.framework in Frameworks */,
+				C5FB43AF1FC12F2D0046CDCA /* UMSocialCore.framework in Frameworks */,
+				C5FB43AD1FC12F2D0046CDCA /* libSocialQQ.a in Frameworks */,
+				C5FB43B11FC12F2D0046CDCA /* libUMSocialLog.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +74,7 @@
 			children = (
 				C5FB43161FC116380046CDCA /* react-native-umeng-share */,
 				C5FB43151FC116380046CDCA /* Products */,
+				C5FB43EA1FC150180046CDCA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,11 +89,86 @@
 		C5FB43161FC116380046CDCA /* react-native-umeng-share */ = {
 			isa = PBXGroup;
 			children = (
+				C5FB439C1FC12F2D0046CDCA /* UMSocial */,
 				C5FB43181FC116380046CDCA /* react_native_umeng_share.m */,
 				C5FB43211FC118430046CDCA /* react_native_umeng_share.swift */,
 				C5FB43201FC118430046CDCA /* react-native-umeng-share-Bridging-Header.h */,
 			);
 			path = "react-native-umeng-share";
+			sourceTree = "<group>";
+		};
+		C5FB439C1FC12F2D0046CDCA /* UMSocial */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB439D1FC12F2D0046CDCA /* SocialLibraries */,
+				C5FB43A41FC12F2D0046CDCA /* UMSocialSDK */,
+				C5FB43A81FC12F2D0046CDCA /* UMSocialSDKPlugin */,
+				C5FB43AA1FC12F2D0046CDCA /* UMSocialUI */,
+			);
+			path = UMSocial;
+			sourceTree = "<group>";
+		};
+		C5FB439D1FC12F2D0046CDCA /* SocialLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB439E1FC12F2D0046CDCA /* QQ */,
+				C5FB43A11FC12F2D0046CDCA /* WeChat */,
+			);
+			path = SocialLibraries;
+			sourceTree = "<group>";
+		};
+		C5FB439E1FC12F2D0046CDCA /* QQ */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB439F1FC12F2D0046CDCA /* libSocialQQ.a */,
+				C5FB43A01FC12F2D0046CDCA /* UMSocialQQHandler.h */,
+			);
+			path = QQ;
+			sourceTree = "<group>";
+		};
+		C5FB43A11FC12F2D0046CDCA /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB43A21FC12F2D0046CDCA /* libSocialWeChat.a */,
+				C5FB43A31FC12F2D0046CDCA /* UMSocialWechatHandler.h */,
+			);
+			path = WeChat;
+			sourceTree = "<group>";
+		};
+		C5FB43A41FC12F2D0046CDCA /* UMSocialSDK */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB43A51FC12F2D0046CDCA /* UMSocialCore.framework */,
+				C5FB43A61FC12F2D0046CDCA /* UMSocialNetwork.framework */,
+				C5FB43A71FC12F2D0046CDCA /* UMSocialSDKPromptResources.bundle */,
+			);
+			path = UMSocialSDK;
+			sourceTree = "<group>";
+		};
+		C5FB43A81FC12F2D0046CDCA /* UMSocialSDKPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB43A91FC12F2D0046CDCA /* libUMSocialLog.a */,
+			);
+			path = UMSocialSDKPlugin;
+			sourceTree = "<group>";
+		};
+		C5FB43AA1FC12F2D0046CDCA /* UMSocialUI */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB43AB1FC12F2D0046CDCA /* UMSocialSDKResources.bundle */,
+				C5FB43AC1FC12F2D0046CDCA /* UShareUI.framework */,
+			);
+			path = UMSocialUI;
+			sourceTree = "<group>";
+		};
+		C5FB43EA1FC150180046CDCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB43EC1FC1503A0046CDCA /* CoreGraphics.framework */,
+				C5FB43EB1FC150190046CDCA /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +288,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LIBTOOLFLAGS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -232,6 +338,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LIBTOOLFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -243,8 +351,19 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PLCFKHTB92;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/react-native-umeng-share/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/react-native-umeng-share/UMSocial/UMSocialUI",
+				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/react-native-umeng-share/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/react-native-umeng-share/UMSocial/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/react-native-umeng-share/UMSocial/UMSocialSDKPlugin",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "react-native-umeng-share/react-native-umeng-share-Bridging-Header.h";
@@ -260,8 +379,19 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PLCFKHTB92;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/react-native-umeng-share/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/react-native-umeng-share/UMSocial/UMSocialUI",
+				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/react-native-umeng-share/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/react-native-umeng-share/UMSocial/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/react-native-umeng-share/UMSocial/UMSocialSDKPlugin",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "react-native-umeng-share/react-native-umeng-share-Bridging-Header.h";
