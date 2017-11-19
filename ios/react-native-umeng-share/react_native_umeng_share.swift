@@ -9,10 +9,10 @@
 import Foundation
 
 @objc(UMengShare)
-class UMengShare: NSObject{
-    @objc func share(){
-        
-        
-        
+class UMengShare: NSObject {
+    @objc func share() {
+
+
+        print("111")
     }
 }
