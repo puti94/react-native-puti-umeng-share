@@ -10,6 +10,13 @@
    ```
 - Android配置:
    ```
+
+   //需要配置友盟APPKEY,否则分享不可用
+   <meta-data
+               android:name="UMENG_APPKEY"
+               android:value="友盟APPKEY" />
+
+
    //微信配置
    在包名目录下创建wxapi文件夹，新建一个名为WXEntryActivity的activity继承WXCallbackActivity。
    并配置Android Manifest XML
