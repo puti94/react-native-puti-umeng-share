@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {NativeModules, Alert} from 'react-native';
+import {NativeModules, Alert, Platform} from 'react-native';
 
 const UMengShare = NativeModules.UMengShare;
 
@@ -62,6 +62,19 @@ export default class UMShare {
      * @returns {*}
      */
     static  isInstall(type) {
+        if (Platform.OS === 'ios') {
+            return new Promise((resolve, reject) => {
+                UMengShare.isInstall(type, res => {
+                    if (res === 'true') {
+                        resolve(true);
+                    } else if (res === 'false') {
+                        resolve(false);
+                    } else {
+                        reject();
+                    }
+                });
+            });
+        }
         return UMengShare.isInstall(type);
     }
 
