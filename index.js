@@ -71,7 +71,7 @@ export default class UMShare {
      * @returns {*|Promise.<Object>}
      */
     static share(params) {
-        return UMengShare.share({text: '', type: '', image: '', title: '', url: '', desc: '', platform: '',...params})
+        return UMengShare.share({text: '', type: '', image: '', title: '', url: '', desc: '', platform: '', ...params})
     }
 
     /**
@@ -80,8 +80,8 @@ export default class UMShare {
      * @returns {Promise}
      */
     static login(platform) {
-        return new Promise((resolve,reject)=>{
-                UMengShare.login(platform).then(res=>resolve(JSON.parse(res))).catch(e=>reject(e))
-    });
+        return new Promise((resolve, reject) => {
+            UMengShare.login(platform).then(res => resolve(JSON.parse(res))).catch(e => reject(e))
+        });
     }
 }
