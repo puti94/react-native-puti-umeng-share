@@ -11,7 +11,9 @@
 - IOS 集成
 
    - 第一步 前往node_module里的react-native-puti-umeng-share 文件夹下的ios-umeng-lib拷贝到工程目录下,并添加到项目中;
+   ![image](https://github.com/puti94/react-native-puti-umeng-share/blob/master/screenshot/QQ20171124-195428.png)
    - 第二步 TARGET -> General -> Linked Frameworks and Libraries 添加 `libsqlite3.tbd` `CoreGraphics.framework` 系统库
+
    - 第三步 在项目中的info.plist中加入应用白名单，右键info.plist选择source code打开(plist具体设置在Build Setting -> Packaging -> Info.plist File可获取plist路径) 请根据选择的平台对以下配置进行缩减：
    ```
    <key>LSApplicationQueriesSchemes</key>
@@ -74,9 +76,7 @@
 
    - 第四步 设置 URL Scheme URL Scheme是通过系统找到并跳转对应app的设置，通过向项目中的info.plist文件中加入URL types可使用第三方平台所注册的appkey信息向系统注册你的app，当跳转到第三方应用授权或分享后，可直接跳转回你的app。
 
-
-
-
+  ![image](https://github.com/puti94/react-native-puti-umeng-share/blob/master/screenshot/QQ20171124-200218.png)
 
    - 第五步 在入口文件AppDelegate.m下设置回调
    ```
@@ -184,11 +184,13 @@
                     url: 'https://www.baidu.com',
                     desc: '我是分享描述',
                     image: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3867393576,1410529218&fm=27&gp=0.jpg'
-                }).then((data) => {
-                   ToastAndroid.show(data, ToastAndroid.SHORT);
-                }).catch(e => {
-                   ToastAndroid.show(e, ToastAndroid.SHORT);
-                })
+                },res=>{
+                if (res){
+                   alert('分享成功')
+                }else{
+                   alert('分享失败')
+                }
+              })
 
          //登录
          UMShare.login(UMShare.WEIXIN)
