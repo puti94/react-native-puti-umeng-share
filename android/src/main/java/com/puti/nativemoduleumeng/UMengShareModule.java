@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.BaseActivityEventListener;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.WritableMap;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.ShareAction;
@@ -79,7 +81,7 @@ public class UMengShareModule extends ReactContextBaseJavaModule {
             @Override
             public void onCancel(SHARE_MEDIA platform) {
                 Log.d(TAG, "onCancel: ");
-                callback.resolve("onCancel");
+                callback.reject("-1","onCancel");
             }
         };
         ShareAction shareAction = new ShareAction(getCurrentActivity());
@@ -134,8 +136,11 @@ public class UMengShareModule extends ReactContextBaseJavaModule {
             @Override
             public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
                 Log.d(TAG, "onComplete: " + map.toString());
-
-                callback.resolve(Utils.map2JsonString(map));
+                WritableMap data = Arguments.createMap();
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    data.putString(entry.getKey(), entry.getValue());
+                }
+                callback.resolve(data);
             }
 
             @Override

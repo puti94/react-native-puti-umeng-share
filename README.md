@@ -5,9 +5,97 @@
    ```
        //first
        npm install react-native-puti-umeng-share --save
-       //then
+       //then   android可自行导包，IOS由于静态库创建有问题，则需要手动集成
        react-native link
    ```
+- IOS 集成
+
+   - 第一步 前往node_module里的react-native-puti-umeng-share 文件夹下的ios-umeng-lib拷贝到工程目录下,并添加到项目中;
+   - 第二步 TARGET -> General -> Linked Frameworks and Libraries 添加 `libsqlite3.tbd` `CoreGraphics.framework` 系统库
+   - 第三步 在项目中的info.plist中加入应用白名单，右键info.plist选择source code打开(plist具体设置在Build Setting -> Packaging -> Info.plist File可获取plist路径) 请根据选择的平台对以下配置进行缩减：
+   ```
+   <key>LSApplicationQueriesSchemes</key>
+   <array>
+       <!-- 微信 URL Scheme 白名单-->
+       <string>wechat</string>
+       <string>weixin</string>
+
+       <!-- 新浪微博 URL Scheme 白名单-->
+       <string>sinaweibohd</string>
+       <string>sinaweibo</string>
+       <string>sinaweibosso</string>
+       <string>weibosdk</string>
+       <string>weibosdk2.5</string>
+
+       <!-- QQ、Qzone、TIM URL Scheme 白名单-->
+       <string>mqqapi</string>
+       <string>mqq</string>
+       <string>mqqOpensdkSSoLogin</string>
+       <string>mqqconnect</string>
+       <string>mqqopensdkdataline</string>
+       <string>mqqopensdkgrouptribeshare</string>
+       <string>mqqopensdkfriend</string>
+       <string>mqqopensdkapi</string>
+       <string>mqqopensdkapiV2</string>
+       <string>mqqopensdkapiV3</string>
+       <string>mqqopensdkapiV4</string>
+       <string>mqzoneopensdk</string>
+       <string>wtloginmqq</string>
+       <string>wtloginmqq2</string>
+       <string>mqqwpa</string>
+       <string>mqzone</string>
+       <string>mqzonev2</string>
+       <string>mqzoneshare</string>
+       <string>wtloginqzone</string>
+       <string>mqzonewx</string>
+       <string>mqzoneopensdkapiV2</string>
+       <string>mqzoneopensdkapi19</string>
+       <string>mqzoneopensdkapi</string>
+       <string>mqqbrowser</string>
+       <string>mttbrowser</string>
+       <string>tim</string>
+       <string>timapi</string>
+       <string>timopensdkfriend</string>
+       <string>timwpa</string>
+       <string>timgamebindinggroup</string>
+       <string>timapiwallet</string>
+       <string>timOpensdkSSoLogin</string>
+       <string>wtlogintim</string>
+       <string>timopensdkgrouptribeshare</string>
+       <string>timopensdkapiV4</string>
+       <string>timgamebindinggroup</string>
+       <string>timopensdkdataline</string>
+       <string>wtlogintimV1</string>
+       <string>timapiV1</string>
+
+   </array>
+
+   ```
+
+   - 第四步 设置 URL Scheme URL Scheme是通过系统找到并跳转对应app的设置，通过向项目中的info.plist文件中加入URL types可使用第三方平台所注册的appkey信息向系统注册你的app，当跳转到第三方应用授权或分享后，可直接跳转回你的app。
+
+
+
+
+
+   - 第五步 在入口文件AppDelegate.m下设置回调
+   ```
+   #import <UMSocialCore/UMSocialCore.h>
+   // 支持所有iOS系统
+   - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+   {
+       //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+       BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+       if (!result) {
+            // 其他如支付等SDK的回调
+       }
+       return result;
+   }
+
+   ```
+
+
+
 - Android配置:
    ```
 

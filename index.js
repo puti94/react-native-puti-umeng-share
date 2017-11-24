@@ -80,11 +80,14 @@ export default class UMShare {
 
     /**
      * 分享    platform分享平台,如果想打开分享面板,以逗号相隔
-     * @param Object类型，接收参数  type,image,title,url,desc,text,platform
-     * @returns {*|Promise.<Object>}
+     * @param params    分享参数
+     * @param callback  回调一个布尔值，true分享成功，false分享失败
      */
-    static share(params) {
-        return UMengShare.share({text: '', type: '', image: '', title: '', url: '', desc: '', platform: '', ...params})
+    static share(params, callback) {
+        UMengShare.share({text: '', type: '', image: '', title: '', url: '', desc: '', platform: '', ...params})
+            .then(data => {
+                callback(true)
+            }).catch(() => callback(false))
     }
 
     /**
@@ -93,8 +96,6 @@ export default class UMShare {
      * @returns {Promise}
      */
     static login(platform) {
-        return new Promise((resolve, reject) => {
-            UMengShare.login(platform).then(res => resolve(JSON.parse(res))).catch(e => reject(e))
-        });
+        return UMengShare.login(platform);
     }
 }

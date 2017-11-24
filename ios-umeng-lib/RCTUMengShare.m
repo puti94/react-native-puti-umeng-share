@@ -14,32 +14,32 @@
 
 @implementation RCTUMengShare
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURL:) name:@"RCTOpenURLNotification" object:nil];
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (BOOL)handleOpenURL:(NSNotification *)aNotification
-{
-    NSString * aURLString =  [aNotification userInfo][@"url"];
-    NSURL * aURL = [NSURL URLWithString:aURLString];
-    
-    if ([[UMSocialManager defaultManager] handleOpenURL:aURL])
-    {
-        return YES;
-    } else {
-        return NO;
-    }
-}
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURL:) name:@"RCTOpenURLNotification" object:nil];
+//    }
+//    return self;
+//}
+//
+//- (void)dealloc
+//{
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
+//
+//- (BOOL)handleOpenURL:(NSNotification *)aNotification
+//{
+//    NSString * aURLString =  [aNotification userInfo][@"url"];
+//    NSURL * aURL = [NSURL URLWithString:aURLString];
+//    
+//    if ([[UMSocialManager defaultManager] handleOpenURL:aURL])
+//    {
+//        return YES;
+//    } else {
+//        return NO;
+//    }
+//}
 
 
 
@@ -74,7 +74,7 @@ RCT_EXPORT_METHOD(isInstall:(NSString *)platform callback:(RCTResponseSenderBloc
     });
 }
 RCT_EXPORT_METHOD(share:(NSDictionary *)params resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject){
-    //待做:分享
+  
     NSLog(@"share %@",params[@"platform"]);
     dispatch_async(dispatch_get_main_queue(), ^{
         
@@ -88,6 +88,7 @@ RCT_EXPORT_METHOD(share:(NSDictionary *)params resolve:(RCTPromiseResolveBlock)r
             [UMSocialUIManager setPreDefinePlatforms:platforms];
             [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
                 [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:[self buildShareMessage:params] currentViewController:nil completion:^(id data, NSError *error) {
+                   NSLog(@"分享回调");
                     if (error) {
                         reject(@"-1",@"分享失败",error);
                     }else{
@@ -105,6 +106,9 @@ RCT_EXPORT_METHOD(share:(NSDictionary *)params resolve:(RCTPromiseResolveBlock)r
             }];
         } else {
             [[UMSocialManager defaultManager] shareToPlatform:[self getPlatform:params[@"platform"]] messageObject:[self buildShareMessage:params] currentViewController:nil completion:^(id data, NSError *error) {
+              
+              NSLog(@"分享回调");
+              
                 if (error) {
                     reject(@"-1",@"分享失败",error);
                 }else{
@@ -125,6 +129,7 @@ RCT_EXPORT_METHOD(share:(NSDictionary *)params resolve:(RCTPromiseResolveBlock)r
 RCT_EXPORT_METHOD(login:(NSString *)platform resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject){
     dispatch_async(dispatch_get_main_queue(), ^{
         [[UMSocialManager defaultManager] getUserInfoWithPlatform:[self getPlatform:platform] currentViewController:nil completion:^(id result, NSError *error) {
+           NSLog(@"登录回调");
             if (error) {
                 reject(@"-1",@"登录失败",error);
             }else{

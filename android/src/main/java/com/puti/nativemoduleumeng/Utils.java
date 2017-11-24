@@ -2,8 +2,6 @@ package com.puti.nativemoduleumeng;
 
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
-import java.util.Map;
-
 /**
  * Created by puti on 2017/11/17.
  */
@@ -49,31 +47,6 @@ public class Utils {
         return array;
     }
 
-    /**
-     * map转json字符串
-     *
-     * @param map
-     * @return
-     */
-    public static String map2JsonString(Map<String, String> map) {
-        StringBuffer sb = new StringBuffer();
-        sb.append("{");
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            sb.append("\"");
-            sb.append(entry.getKey());
-            sb.append("\"");
-            sb.append(":");
-            sb.append("\"");
-            sb.append(entry.getValue());
-            sb.append("\"");
-            sb.append(",");
-        }
-        String s = sb.toString();
-        int i = s.lastIndexOf(",");
-        if (i == s.length() - 1) {
-            s = s.substring(0, s.length() - 1);
-        }
-        return (s + "}");
-    }
+
 
 }

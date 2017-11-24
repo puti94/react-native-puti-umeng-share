@@ -7,9 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
-#import <UMSocialCore/UMSocialCore.h>
 
 @interface RCTUMengShare : NSObject <RCTBridgeModule>
-- (UMSocialPlatformType)getPlatform:(NSString*)platform;
 @end
 
