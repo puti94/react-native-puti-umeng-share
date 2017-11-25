@@ -14,32 +14,32 @@
 
 @implementation RCTUMengShare
 
-//- (instancetype)init
-//{
-//    self = [super init];
-//    if (self) {
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURL:) name:@"RCTOpenURLNotification" object:nil];
-//    }
-//    return self;
-//}
-//
-//- (void)dealloc
-//{
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//}
-//
-//- (BOOL)handleOpenURL:(NSNotification *)aNotification
-//{
-//    NSString * aURLString =  [aNotification userInfo][@"url"];
-//    NSURL * aURL = [NSURL URLWithString:aURLString];
-//    
-//    if ([[UMSocialManager defaultManager] handleOpenURL:aURL])
-//    {
-//        return YES;
-//    } else {
-//        return NO;
-//    }
-//}
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURL:) name:@"RCTOpenURLNotification" object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (BOOL)handleOpenURL:(NSNotification *)aNotification
+{
+    NSString * aURLString =  [aNotification userInfo][@"url"];
+    NSURL * aURL = [NSURL URLWithString:aURLString];
+    
+    if ([[UMSocialManager defaultManager] handleOpenURL:aURL])
+    {
+        return YES;
+    } else {
+        return NO;
+    }
+}
 
 
 
