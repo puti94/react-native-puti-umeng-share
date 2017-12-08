@@ -200,6 +200,8 @@ RCT_EXPORT_METHOD(login:(NSString *)platform resolve:(RCTPromiseResolveBlock)res
         return UMSocialPlatformType_WechatTimeLine;
     }else if ([platform  isEqual: @"WEIXIN_FAVORITE"]) {
         return UMSocialPlatformType_WechatFavorite;
+    }else if ([platform  isEqual: @"SINA"]) {
+        return UMSocialPlatformType_Sina;
     }else {
         return UMSocialPlatformType_Sms;
     }

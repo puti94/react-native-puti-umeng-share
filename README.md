@@ -1,5 +1,5 @@
 # react-native-puti-umeng-share
-友盟分享登录的react-native模块，仅集成qq,微信,新浪微博,需要其它的自行参照代码集成。
+友盟分享登录的react-native模块，仅集成qq,微信,新浪微博（没有账号未测试。如果问题提Issues）,需要其它的自行参照代码集成。
 
 
 - 自动安装:
