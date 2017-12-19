@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SocialSDK_WeChat_Simplify">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../node_modules/react-native-puti-umeng-share/android/libs/SocialSDK_WeChat_Simplify.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

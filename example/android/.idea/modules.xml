@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-puti-umeng-share/android/react-native-puti-umeng-share.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-puti-umeng-share/android/react-native-puti-umeng-share.iml" />
+      <module fileurl="file://$PROJECT_DIR$/umeng.iml" filepath="$PROJECT_DIR$/umeng.iml" />
+    </modules>
+  </component>
+</project>

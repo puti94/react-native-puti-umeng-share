@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="umeng_social_shareview">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../node_modules/react-native-puti-umeng-share/android/libs/umeng_social_shareview.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
